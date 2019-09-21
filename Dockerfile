@@ -29,6 +29,6 @@ RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
 RUN echo "deb http://apt.llvm.org/buster/ llvm-toolchain-buster-8 main" >> /etc/apt/sources.list
 RUN echo "deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-8 main" >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install llvm-8-dev
+RUN apt-get install -y llvm-8-dev
 
 USER root
