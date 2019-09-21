@@ -23,6 +23,7 @@ RUN apt-get install -y \
         libssl-dev \
         pkg-config \
         lsb-release \
+        software-properties-common \
         patch
 RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
