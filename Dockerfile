@@ -24,6 +24,6 @@ RUN apt-get install -y \
         pkg-config \
         lsb-release \
         patch
-RUN bash -c "wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && ./llvm.sh 9.0.0"
+RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
 USER root
