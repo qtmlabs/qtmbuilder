@@ -17,8 +17,8 @@ RUN apt-get install -y \
         qemu-user \
         libc6:armhf \
         libstdc++6:armhf \
-        zlib1g-dev \
         zlib1g-dev:armhf \
+        zlib1g-dev \
         libssl-dev:armhf \
         libssl-dev \
         pkg-config \
