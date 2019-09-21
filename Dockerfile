@@ -1,4 +1,4 @@
-FROM debian:unstable
+FROM debian:stable
 
 RUN dpkg --add-architecture armhf
 RUN apt-get update
