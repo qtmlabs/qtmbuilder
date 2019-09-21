@@ -1,5 +1,7 @@
 FROM debian:stable
 
+RUN echo "deb http://apt.llvm.org/buster/ llvm-toolchain-buster-8 main" >> /etc/apt/sources.list
+RUN echo "deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-8 main" >> /etc/apt/sources.list
 RUN dpkg --add-architecture armhf
 RUN apt-get update
 RUN apt-get upgrade -y
@@ -24,7 +26,7 @@ RUN apt-get install -y \
         pkg-config \
         lsb-release \
         software-properties-common \
-        patch
-RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+        patch \
+        llvm-8-dev
 
 USER root
