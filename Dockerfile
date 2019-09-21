@@ -22,6 +22,7 @@ RUN apt-get install -y \
         libssl-dev:armhf \
         libssl-dev \
         pkg-config \
+        lsb-release \
         patch
 RUN bash -c "wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && ./llvm.sh 9.0.0"
 
