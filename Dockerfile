@@ -1,4 +1,4 @@
-FROM debian:unstable
+FROM debian:10
 
 RUN dpkg --add-architecture armhf
 RUN apt-get update
@@ -26,9 +26,9 @@ RUN apt-get install -y \
         software-properties-common \
         patch
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-RUN echo "deb http://apt.llvm.org/buster/ llvm-toolchain-buster-8 main" >> /etc/apt/sources.list
-RUN echo "deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-8 main" >> /etc/apt/sources.list
+RUN echo "deb http://apt.llvm.org/buster/ llvm-toolchain-buster-9 main" >> /etc/apt/sources.list
+RUN echo "deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-9 main" >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install -y llvm-8-dev
+RUN apt-get install -y llvm-9-dev
 
 USER root
