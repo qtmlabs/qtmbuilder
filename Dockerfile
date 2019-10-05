@@ -24,7 +24,8 @@ RUN apt-get install -y \
         pkg-config \
         lsb-release \
         software-properties-common \
-        patch
+        patch \
+        unzip
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
 RUN echo "deb http://apt.llvm.org/buster/ llvm-toolchain-buster-9 main" >> /etc/apt/sources.list
 RUN echo "deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-9 main" >> /etc/apt/sources.list
