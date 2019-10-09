@@ -7,7 +7,7 @@ RUN cat /tmp/sources.list > /etc/apt/sources.list
 RUN dpkg --add-architecture armhf
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y \
+RUN apt-get install -y -f \
         sudo \
         build-essential \
         cmake \
