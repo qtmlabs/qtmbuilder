@@ -2,8 +2,8 @@ FROM msizanoen/armv7-linux-rs:130
 
 USER root
 
-RUN echo "deb http://ports.ubuntu.com/ubuntu-ports/ xenial main" >> /etc/apt/sources.list
-RUN echo "deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial main" >> /etc/apt/sources.list
+COPY sources.list /tmp/sources.list
+RUN cat /tmp/sources.list > /etc/apt/sources.list
 RUN dpkg --add-architecture armhf
 RUN apt-get update
 RUN apt-get upgrade -y
