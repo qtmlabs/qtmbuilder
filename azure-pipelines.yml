@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-16.04'
 
 variables:
-  imageName: 'msizanoen/qtmbuilder'
+  imageName: 'msizanoen/qtmbuilder-upstream-deriv'
 
 steps:
   - task: Docker@2
