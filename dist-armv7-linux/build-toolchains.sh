@@ -23,6 +23,6 @@ mkdir build
 cd build
 cp ../armv7-linux-gnueabihf.config .config
 ct-ng oldconfig
-ct-ng build
+hide_output ct-ng build
 cd ..
 rm -rf build
