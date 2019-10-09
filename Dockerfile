@@ -2,6 +2,9 @@ FROM msizanoen/armv7-linux-rs:130
 
 USER root
 
+RUN echo "deb http://ports.ubuntu.com/ubuntu-ports/ xenial main" >> /etc/apt/sources.list
+RUN echo "deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial main" >> /etc/apt/sources.list
+RUN dpkg --add-architecture armhf
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y \
@@ -18,6 +21,9 @@ RUN apt-get install -y \
         lsb-release \
         software-properties-common \
         patch \
+        libc6:armhf \
+        libstdc++6:armhf \
+        zlib1g:armhf \
         unzip
 
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
