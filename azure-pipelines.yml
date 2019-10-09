@@ -12,6 +12,8 @@ pool:
 variables:
   imageName: 'msizanoen/armv7-linux-rs'
 
+timeoutInMinutes: 0
+
 steps:
   - task: Docker@2
     displayName: Build builder image
