@@ -6,25 +6,27 @@
 trigger:
 - upstream
 
-pool:
-  vmImage: 'ubuntu-16.04'
+jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-16.04'
 
-variables:
-  imageName: 'msizanoen/armv7-linux-rs'
+    variables:
+      imageName: 'msizanoen/armv7-linux-rs'
 
-timeoutInMinutes: 0
+    timeoutInMinutes: 0
 
-steps:
-  - task: Docker@2
-    displayName: Build builder image
-    inputs:
-      repository: $(imageName)
-      command: build
-      buildContext: $(Build.Repository.LocalPath)
-      Dockerfile: dist-armv7-linux/Dockerfile
-  - task: Docker@2
-    displayName: Publish image
-    inputs:
-      containerRegistry: DockerConn
-      repository: $(imageName)
-      command: push
+    steps:
+    - task: Docker@2
+      displayName: Build builder image
+      inputs:
+        repository: $(imageName)
+        command: build
+        buildContext: $(Build.Repository.LocalPath)
+        Dockerfile: dist-armv7-linux/Dockerfile
+    - task: Docker@2
+      displayName: Publish image
+      inputs:
+        containerRegistry: DockerConn
+        repository: $(imageName)
+        command: push
