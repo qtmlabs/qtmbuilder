@@ -1,4 +1,4 @@
-deb [arch=armhf] http://ports.ubuntu.com/ubuntu-ports/ xenial main
-deb-src [arch=armhf] http://ports.ubuntu.com/ubuntu-ports/ xenial main
 deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ xenial main
 deb-src [arch=amd64] http://archive.ubuntu.com/ubuntu/ xenial main
+deb [arch=armhf] http://ports.ubuntu.com/ubuntu-ports/ xenial main
+deb-src [arch=armhf] http://ports.ubuntu.com/ubuntu-ports/ xenial main
