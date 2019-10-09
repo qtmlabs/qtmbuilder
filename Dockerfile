@@ -19,3 +19,9 @@ RUN apt-get install -y \
         software-properties-common \
         patch \
         unzip
+
+RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+RUN echo "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-9 main" >> /etc/apt/sources.list
+RUN echo "deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial-9 main" >> /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install -y llvm-9-dev
