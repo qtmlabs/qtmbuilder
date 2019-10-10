@@ -1,4 +1,4 @@
-FROM msizanoen/qtmbuilder:69
+FROM ubuntu:16.04
 
 COPY scripts/cross-apt-packages.sh /scripts/
 RUN sh /scripts/cross-apt-packages.sh
