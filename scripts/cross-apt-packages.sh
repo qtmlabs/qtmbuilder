@@ -24,4 +24,5 @@ apt-get update && apt-get install -y --no-install-recommends \
   texinfo \
   wget \
   unzip \
+  help2man \
   xz-utils
