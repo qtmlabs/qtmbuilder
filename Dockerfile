@@ -18,6 +18,7 @@ RUN apt-get install -y -f \
         lsb-release \
         software-properties-common \
         patch \
+        qemu-user \
         unzip
 
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
