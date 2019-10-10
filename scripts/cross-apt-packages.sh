@@ -23,4 +23,5 @@ apt-get update && apt-get install -y --no-install-recommends \
   sudo \
   texinfo \
   wget \
+  unzip \
   xz-utils
