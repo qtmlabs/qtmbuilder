@@ -18,6 +18,7 @@ RUN apt-get install -y -f \
         lsb-release \
         software-properties-common \
         patch \
+        libglib2.0-dev \
         unzip
 
 COPY install-qemu.sh /tmp/install-qemu.sh
