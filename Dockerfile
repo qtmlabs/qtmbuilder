@@ -18,8 +18,10 @@ RUN apt-get install -y -f \
         lsb-release \
         software-properties-common \
         patch \
-        qemu-user \
         unzip
+
+COPY install-qemu.sh /tmp/install-qemu.sh
+RUN bash -x /tmp/install-qemu.sh
 
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
 RUN echo "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-9 main" >> /etc/apt/sources.list
