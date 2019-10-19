@@ -4,21 +4,25 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- hydra
 
 pool:
   vmImage: 'ubuntu-16.04'
 
 variables:
-  imageName: 'msizanoen/qtmbuilder'
+  imageName: 'msizanoen/armv7-linux-rs'
 
 steps:
+  - script: |
+      git clone --depth=1 -b fix-armv7-segfault https://github.com/msizanoen1/rust.git
+    displayName: Get code
   - task: Docker@2
     displayName: Build builder image
     inputs:
       repository: $(imageName)
       command: build
-      Dockerfile: Dockerfile
+      Dockerfile: rust/src/ci/docker/dist-armv7-linux/Dockerfile
+      buildContext: rust/src/ci/docker
   - task: Docker@2
     displayName: Publish image
     inputs:
