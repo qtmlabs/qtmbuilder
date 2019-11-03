@@ -22,7 +22,6 @@ RUN apt-get install -y \
         libssl-dev:armhf \
         libssl-dev \
         pkg-config \
-        lsb-release \
         software-properties-common \
         patch \
         unzip
