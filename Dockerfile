@@ -22,8 +22,6 @@ RUN apt-get install -y \
         libssl-dev:armhf \
         libssl-dev \
         pkg-config \
-        lsb-release \
-        software-properties-common \
         patch \
         unzip
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
