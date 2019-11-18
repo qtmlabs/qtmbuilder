@@ -25,6 +25,15 @@ RUN apt-get install -y \
         lsb-release \
         software-properties-common \
         patch \
+        libtool-bin \
+        help2man \
+        libncurses-dev \
+        texinfo \
+        xz-utils \
+        flex \
+        bison \
+        gperf \
+        gawk \
         unzip
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
 RUN echo "deb http://apt.llvm.org/buster/ llvm-toolchain-buster-9 main" >> /etc/apt/sources.list
