@@ -8,8 +8,6 @@ RUN apt-get install -y \
         build-essential \
         gcc-arm-linux-gnueabihf \
         g++-arm-linux-gnueabihf \
-        gcc-riscv64-linux-gnu \
-        g++-riscv64-linux-gnu \
         cmake \
         ninja-build \
         git \
@@ -42,5 +40,9 @@ RUN echo "deb http://apt.llvm.org/buster/ llvm-toolchain-buster-9 main" >> /etc/
 RUN echo "deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-9 main" >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y llvm-9-dev
+
+COPY crosstool-ng.sh /tmp
+COPY riscv.config /tmp
+RUN bash /tmp/crosstool-ng.sh
 
 USER root
