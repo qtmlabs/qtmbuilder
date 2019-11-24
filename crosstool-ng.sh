@@ -2,7 +2,8 @@
 set -ex
 
 url="http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.tar.xz"
-curl -Lf $url | tar xzf -
+wget "$url"
+tar xf crosstool-ng-1.24.0.tar.xz
 cd crosstool-ng-1.24.0
 ./configure --prefix=/usr/local
 make -j$(nproc)
