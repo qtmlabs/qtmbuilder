@@ -45,4 +45,6 @@ COPY crosstool-ng.sh /tmp
 COPY riscv.config /tmp
 RUN bash /tmp/crosstool-ng.sh
 
+ENV PATH=/riscv/bin:$PATH
+
 USER root
