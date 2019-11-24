@@ -8,6 +8,8 @@ RUN apt-get install -y \
         build-essential \
         gcc-arm-linux-gnueabihf \
         g++-arm-linux-gnueabihf \
+        gcc-riscv64-linux-gnu \
+        g++-riscv64-linux-gnu \
         cmake \
         ninja-build \
         git \
