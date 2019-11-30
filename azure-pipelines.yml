@@ -4,24 +4,32 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- rust
 
-pool:
-  vmImage: 'ubuntu-16.04'
+jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-16.04'
 
-variables:
-  imageName: 'msizanoen/qtmbuilder'
+    variables:
+      imageName: 'msizanoen/qtmbuilder'
 
-steps:
-  - task: Docker@2
-    displayName: Build builder image
-    inputs:
-      repository: $(imageName)
-      command: build
-      Dockerfile: Dockerfile
-  - task: Docker@2
-    displayName: Publish image
-    inputs:
-      containerRegistry: DockerConn
-      repository: $(imageName)
-      command: push
+    timeoutInMinutes: 0
+
+    steps:
+      - script: |
+          git clone --depth=1 -b riscv-ci https://github.com/msizanoen1/rust.git
+          displayName: Get sources
+      - task: Docker@2
+        displayName: Build builder image
+        inputs:
+          repository: $(imageName)
+          command: build
+          Dockerfile: rust/src/ci/docker/dist-riscv64-linux/Dockerfile
+          buildContext: $(Build.Repository.LocalPath)/rust/src/ci/docker
+      - task: Docker@2
+        displayName: Publish image
+        inputs:
+          containerRegistry: DockerConn
+          repository: $(imageName)
+          command: push
