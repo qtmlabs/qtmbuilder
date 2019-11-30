@@ -19,7 +19,7 @@ jobs:
     steps:
       - script: |
           git clone --depth=1 -b riscv-ci https://github.com/msizanoen1/rust.git
-          displayName: Get sources
+        displayName: Get sources
       - task: Docker@2
         displayName: Build builder image
         inputs:
