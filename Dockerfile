@@ -35,16 +35,13 @@ RUN apt-get install -y \
         gperf \
         gawk \
         unzip
-RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-RUN echo "deb http://apt.llvm.org/buster/ llvm-toolchain-buster-9 main" >> /etc/apt/sources.list
-RUN echo "deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-9 main" >> /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get install -y llvm-9-dev
 
 COPY crosstool-ng.sh /tmp
 COPY riscv.config /tmp
 RUN bash /tmp/crosstool-ng.sh
 
 ENV PATH=/riscv/bin:$PATH
+ENV CC_riscv64gc_unknown_linux_gnu=riscv64-unknown-linux-gnu-gcc
+ENV CFLAGS_riscv64gc_unknown_linux_gnu="-mabi=lp64d -fPIC"
 
 USER root
