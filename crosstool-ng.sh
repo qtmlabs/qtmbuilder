@@ -15,3 +15,5 @@ mkdir -p /tmp/work
 cd /tmp/work
 cp /tmp/riscv.config .config
 ct-ng build
+cd ..
+rm -rf work
