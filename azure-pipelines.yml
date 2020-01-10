@@ -27,9 +27,11 @@ jobs:
           command: build
           Dockerfile: rust/src/ci/docker/dist-riscv64-linux/Dockerfile
           buildContext: $(Build.Repository.LocalPath)/rust/src/ci/docker
+          tags: dist-riscv64-linux
       - task: Docker@2
         displayName: Publish image
         inputs:
           containerRegistry: DockerConn
           repository: $(imageName)
           command: push
+          tags: dist-riscv64-linux
