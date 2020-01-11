@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- rust
+- dist-various-1
 
 jobs:
   - job:
@@ -18,20 +18,20 @@ jobs:
 
     steps:
       - script: |
-          git clone --depth=1 -b riscv-host https://github.com/msizanoen1/rust.git
+          git clone --depth=1 -b riscv-ci https://github.com/msizanoen1/rust.git
         displayName: Get sources
       - task: Docker@2
         displayName: Build builder image
         inputs:
           repository: $(imageName)
           command: build
-          Dockerfile: rust/src/ci/docker/dist-riscv64-linux/Dockerfile
+          Dockerfile: rust/src/ci/docker/dist-various-1/Dockerfile
           buildContext: $(Build.Repository.LocalPath)/rust/src/ci/docker
-          tags: dist-riscv64-linux
+          tags: dist-various-1
       - task: Docker@2
         displayName: Publish image
         inputs:
           containerRegistry: DockerConn
           repository: $(imageName)
           command: push
-          tags: dist-riscv64-linux
+          tags: dist-various-1
