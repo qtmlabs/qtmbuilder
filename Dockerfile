@@ -41,7 +41,5 @@ COPY riscv.config /tmp
 RUN bash /tmp/crosstool-ng.sh
 
 ENV PATH=/riscv/bin:$PATH
-ENV CC_riscv64gc_unknown_linux_gnu=riscv64-unknown-linux-gnu-gcc
-ENV CFLAGS_riscv64gc_unknown_linux_gnu="-mabi=lp64d -fPIC"
 
 USER root
